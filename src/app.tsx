@@ -1,13 +1,8 @@
 import React from 'react';
-// import 'bootstrap/dist/css/bootstrap.css'
-
+import 'bootstrap/dist/css/bootstrap.css'
+import './oppanai/assets/stylesheets/app.scss';
 import Oppanai from './oppanai/oppanai'
-
-interface OppanaiProps {
-
-}
-
-class App extends React.Component<OppanaiProps> {
+class App extends React.Component {
     render() {
         return <Oppanai />
     }
