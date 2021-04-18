@@ -1,0 +1,16 @@
+.oppanai-logo {
+    color: #db3d7e;
+}
+
+.upload-img-options-div {
+    width: 25rem;
+    border: 1px solid #db3d7e;
+}
+
+.preview-before-edit {
+    height: 35vh;
+}
+
+.preview-before-edit img {
+    object-fit: scale-down;
+}
