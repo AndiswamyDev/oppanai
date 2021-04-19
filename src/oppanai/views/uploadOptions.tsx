@@ -31,7 +31,7 @@ class UploadOptions extends React.Component {
                     <Card.Body className=''>
                         <h5 className='d-flex justify-content-center'>{CONSTANTS.UPLOAD_FROM_PC}</h5>
                         <Card.Title className='d-flex justify-content-center'>
-                            <label className='btn border border-primary' title='Click to upload' >
+                            <label id={CONSTANTS.OPPANAI_UPLOAD_BUTTON} className='btn border border-primary' >
                                 <UploadImageIcon width={50} height={50} />
                                 <input type="file" accept='image/*' hidden onChange={(e) => this.handleLocalFileUpload(e)} />
                             </label>
@@ -41,7 +41,7 @@ class UploadOptions extends React.Component {
                         </Card.Text>
                         <SuccessFailUploadStatus isFileUploaded={this.state.isFileUploaded} uploadedImageData={this.state.uploadedImageData} isFileError={this.state.isFileError} throwInvalidImageAlert={this.throwInvalidImageAlert} />
                         <div className='d-flex justify-content-center'>
-                            <Button className='text-light m-3 font-weight-bold' disabled={!this.state.isFileUploaded || this.state.isFileError}>{CONSTANTS.START_EDIT}</Button>
+                            <Button id={CONSTANTS.OPPANAI_START_EDIT_BUTTON} className='text-light m-3 font-weight-bold' disabled={!this.state.isFileUploaded || this.state.isFileError}>{CONSTANTS.START_EDIT}</Button>
                         </div>
                     </Card.Body>
                 </Card>
