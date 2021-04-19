@@ -2,9 +2,13 @@
     color: #db3d7e;
 }
 
-.upload-img-options-div {
+.upload-img-option {
     width: 25rem;
-    border: 1px solid #db3d7e;
+    transition: transform 1s;
+}
+
+.upload-img-option:hover {
+    transform: scale(1.1);
 }
 
 .preview-before-edit {
