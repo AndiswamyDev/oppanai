@@ -27,11 +27,11 @@ class UploadOptions extends React.Component {
     render() {
         return (
             <div className='d-flex d-flex justify-content-center m-2'>
-                <Card className='m-3 upload-img-options-div' >
+                <Card className='m-3 upload-img-option oppanai-box-shadow' >
                     <Card.Body className=''>
                         <h5 className='d-flex justify-content-center'>{CONSTANTS.UPLOAD_FROM_PC}</h5>
                         <Card.Title className='d-flex justify-content-center'>
-                            <label id={CONSTANTS.OPPANAI_UPLOAD_BUTTON} className='btn border border-primary' >
+                            <label id={CONSTANTS.OPPANAI_UPLOAD_BUTTON} className='btn border oppanai-box-shadow' >
                                 <UploadImageIcon width={50} height={50} />
                                 <input type="file" accept='image/*' hidden onChange={(e) => this.handleLocalFileUpload(e)} />
                             </label>
