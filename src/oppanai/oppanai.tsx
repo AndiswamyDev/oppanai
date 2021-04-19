@@ -2,8 +2,12 @@ import React from 'react';
 import './oppanai.css';
 import UploadOptions from './views/uploadOptions';
 import { CONSTANTS } from './constants';
+import { initiateTooltip } from './components/tooltip/tippy';
 
 class Oppanai extends React.Component {
+    componentDidMount() {
+        initiateTooltip();
+    }
     render() {
         return (
             <div className='container-fluid oppanai-wrapper'>
