@@ -12,7 +12,7 @@ class Oppanai extends React.Component {
         return (
             <div className='container-fluid oppanai-wrapper'>
                 <div className='d-flex justify-content-center oppanai-logo m-2'>
-                    <h1>{CONSTANTS.OPPANAI}</h1>
+                    <h3>{CONSTANTS.OPPANAI}</h3>
                 </div>
                 <UploadOptions />
             </div>

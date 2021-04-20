@@ -18,3 +18,7 @@
 .preview-before-edit img {
     object-fit: scale-down;
 }
+
+.preview-on-edit img {
+    max-height: 60vh;
+}
