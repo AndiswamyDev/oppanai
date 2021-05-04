@@ -6,4 +6,7 @@ export const CONSTANTS = {
     IMAGE_UPLOAD_ERROR_ALERT_TEXT: `Oops, There's a problem in this Image, Try another`,
     OPPANAI_UPLOAD_BUTTON: 'oppanai-upload-button',
     OPPANAI_START_EDIT_BUTTON: 'oppanai-start-edit-button',
+    OPPANAI_CROP_ICON: 'oppanai-crop-icon',
+    OPPANAI_FILTER_ICON: 'oppanai-filter-icon',
+    OPPANAI_COLOR_ICON: 'oppanai-color-icon'
 }

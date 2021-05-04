@@ -22,3 +22,8 @@
 .preview-on-edit img {
     max-height: 60vh;
 }
+
+.edit-options-wrapper {
+    position: fixed;
+    bottom: 20px;
+}

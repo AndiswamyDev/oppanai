@@ -14,4 +14,19 @@ export const initiateTooltip = () => {
         animation: 'scale',
         placement: 'bottom'
     });
+    tippy(`#${CONSTANTS.OPPANAI_CROP_ICON}`, {
+        content: 'Crop',
+        animation: 'scale',
+        placement: 'bottom'
+    });
+    tippy(`#${CONSTANTS.OPPANAI_FILTER_ICON}`, {
+        content: 'Filter',
+        animation: 'scale',
+        placement: 'bottom'
+    });
+    tippy(`#${CONSTANTS.OPPANAI_COLOR_ICON}`, {
+        content: 'Color',
+        animation: 'scale',
+        placement: 'bottom'
+    });
 }
