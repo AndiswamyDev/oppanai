@@ -14,6 +14,11 @@ export const initiateTooltip = () => {
         animation: 'scale',
         placement: 'bottom'
     });
+    tippy(`#${CONSTANTS.OPPANAI_ROTATE_ICON}`, {
+        content: 'Rotate',
+        animation: 'scale',
+        placement: 'bottom'
+    });
     tippy(`#${CONSTANTS.OPPANAI_CROP_ICON}`, {
         content: 'Crop',
         animation: 'scale',
@@ -26,6 +31,26 @@ export const initiateTooltip = () => {
     });
     tippy(`#${CONSTANTS.OPPANAI_COLOR_ICON}`, {
         content: 'Color',
+        animation: 'scale',
+        placement: 'bottom'
+    });
+    tippy(`#${CONSTANTS.OPPANAI_LEFT_ROTATE_ICON}`, {
+        content: 'Rotate Left',
+        animation: 'scale',
+        placement: 'bottom'
+    });
+    tippy(`#${CONSTANTS.OPPANAI_RIGHT_ROTATE_ICON}`, {
+        content: 'Rotate Right',
+        animation: 'scale',
+        placement: 'bottom'
+    });
+    tippy(`#${CONSTANTS.OPPANAI_HORIZONTAL_ROTATE_ICON}`, {
+        content: 'Horizontal Flip',
+        animation: 'scale',
+        placement: 'bottom'
+    });
+    tippy(`#${CONSTANTS.OPPANAI_VERTICAL_ROTATE_ICON}`, {
+        content: 'Vertical Flip',
         animation: 'scale',
         placement: 'bottom'
     });

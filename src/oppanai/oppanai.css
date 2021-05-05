@@ -27,3 +27,24 @@
     position: fixed;
     bottom: 20px;
 }
+
+.oppanai-rotate-wrapper {
+    position: fixed;
+    bottom: 15%;
+}
+
+.oppanai-rotate-wrapper svg,
+.edit-options-wrapper svg {
+    transition: transform 1s;
+    background-color: #fcebf2;
+}
+
+.oppanai-rotate-wrapper svg:hover,
+.edit-options-wrapper svg:hover {
+    transform: scale(1.2);
+}
+
+.oppanai-rotate-wrapper svg:focus,
+.edit-options-wrapper svg:focus {
+    box-shadow: none;
+}
