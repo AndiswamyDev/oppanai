@@ -2,7 +2,7 @@ import React from 'react';
 import { Image } from 'react-bootstrap';
 import EditOption from './editOptions';
 // import RND from '../components/rnd/reactRND';
-
+import RotateImage from './rotateImage';
 interface OppanaiEditorProps {
     imageSource: string;
 }
@@ -20,6 +20,7 @@ class OppanaiEditor extends React.Component<OppanaiEditorProps> {
                     {/* <RND /> */}
                 </div>
                 <EditOption />
+                <RotateImage />
             </div>
         )
     }
