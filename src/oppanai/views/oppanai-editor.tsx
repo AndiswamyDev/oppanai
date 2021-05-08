@@ -20,16 +20,16 @@ class OppanaiEditor extends React.Component<OppanaiEditorProps> {
         switch (rotateType) {
             case 'right':
                 this.setState((prevState: any) => {
-                    if (prevState.rotateStyle <= 360)
+                    if (prevState.rotateStyle < 270)
                         return { rotateStyle: prevState.rotateStyle + 90 }
-                    else this.setState({ rotateStyle: 0 });
+                    else return { rotateStyle: 0 };
                 });
                 break;
             case 'left':
                 this.setState((prevState: any) => {
-                    if (prevState.rotateStyle >= 0)
+                    if (prevState.rotateStyle > 0)
                         return { rotateStyle: prevState.rotateStyle - 90 }
-                    else this.setState({ rotateStyle: 360 });
+                    else return { rotateStyle: 270 };
                 });
                 break;
             case 'flip-h':
@@ -58,7 +58,6 @@ class OppanaiEditor extends React.Component<OppanaiEditorProps> {
                     }
                 });
                 break;
-
             default:
                 break;
         }
