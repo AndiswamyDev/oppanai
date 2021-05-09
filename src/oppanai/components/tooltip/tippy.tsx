@@ -1,7 +1,7 @@
-import tippy from 'tippy.js'
-import 'tippy.js/dist/tippy.css'
-import 'tippy.js/animations/scale.css'
-import { CONSTANTS } from '../../constants'
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/animations/scale.css';
+import { CONSTANTS } from '../../constants';
 
 export const initiateTooltip = () => {
     tippy(`#${CONSTANTS.OPPANAI_UPLOAD_BUTTON}`, {
@@ -51,6 +51,11 @@ export const initiateTooltip = () => {
     });
     tippy(`#${CONSTANTS.OPPANAI_VERTICAL_ROTATE_ICON}`, {
         content: 'Vertical Flip',
+        animation: 'scale',
+        placement: 'bottom'
+    });
+    tippy(`#${CONSTANTS.OPPANAI_DOWNLOAD_IMAGE}`, {
+        content: 'Download',
         animation: 'scale',
         placement: 'bottom'
     });
