@@ -69,8 +69,8 @@ class OppanaiEditor extends React.Component<OppanaiEditorProps> {
         };
         return (
             <div className='d-flex flex-column align-items-center  oppanai-editor-wrapper preview-on-edit' >
-                <div className=''>
-                    <Image src={this.props.imageSource} className='mw-100 p-5 oppanai-box-shadow oppanai-hero-image' style={styles} />
+                <div className='w-100 d-flex image-source-wrapper justify-content-center m-5' >
+                    <Image src={this.props.imageSource} className='mw-100 oppanai-hero-image' style={styles} />
                     {/* <RND /> */}
                 </div>
                 <EditOption handleEditOptions={this.handleEditOptions} />

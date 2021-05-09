@@ -20,17 +20,17 @@
 }
 
 .preview-on-edit img {
-    max-height: 60vh;
+    max-height: 70vh;
 }
 
 .edit-options-wrapper {
     position: fixed;
-    bottom: 20px;
+    bottom: 5px;
 }
 
 .oppanai-rotate-wrapper {
     position: fixed;
-    bottom: 15%;
+    bottom: 10%;
 }
 
 .oppanai-rotate-wrapper svg,
@@ -47,4 +47,8 @@
 .oppanai-rotate-wrapper svg:focus,
 .edit-options-wrapper svg:focus {
     box-shadow: none;
+}
+
+.image-source-wrapper {
+    max-height: fit-content;
 }
