@@ -5,16 +5,26 @@ import { CONSTANTS } from './constants';
 import { initiateTooltip } from './components/tooltip/tippy';
 
 class Oppanai extends React.Component {
+    state = {
+        isEditView: false
+    }
     componentDidMount() {
         initiateTooltip();
+    }
+    editView = (isEditView: boolean) => {
+        this.setState({
+            isEditView: isEditView
+        });
     }
     render() {
         return (
             <div className='container-fluid oppanai-wrapper'>
-                <div className='d-flex justify-content-center oppanai-logo m-2'>
-                    <h3>{CONSTANTS.OPPANAI}</h3>
-                </div>
-                <UploadOptions />
+                {!this.state.isEditView ?
+                    <div className='d-flex justify-content-center oppanai-logo m-2'>
+                        <h3>{CONSTANTS.OPPANAI}</h3>
+                    </div> : null
+                }
+                <UploadOptions editView={this.editView} />
             </div>
         )
     }

@@ -6,7 +6,10 @@ import { CONSTANTS } from '../constants';
 import StartEdit from '../components/startEdit/startEdit';
 import OppanaiEditor from './oppanai-editor';
 
-class UploadOptions extends React.Component {
+interface uploadProps {
+    editView: (isEditView: boolean) => void;
+}
+class UploadOptions extends React.Component<uploadProps>{
     state = {
         isFileUploaded: false,
         uploadedImageData: {},
@@ -33,6 +36,7 @@ class UploadOptions extends React.Component {
             startEdit: true,
             imageSource: URL.createObjectURL(this.state.uploadedImageData)
         });
+        this.props.editView(true)
     }
     render() {
         return (
