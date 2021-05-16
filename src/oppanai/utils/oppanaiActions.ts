@@ -1,6 +1,6 @@
 import {CONSTANTS} from '../constants';
 
-export const handleDownload = (imageRef: any, imageFile: ImageEncodeOptions, rotateStyle: number) => {
+export const handleDownload = (imageRef: any, imageFile: HTMLImageElement, rotateStyle: number) => {
     const editedImage: any = document.getElementById(CONSTANTS.OPPANAI_EDITING_IMAGE);
     const canvas = document.createElement('canvas');
     canvas.width = (editedImage.style.transform.includes(90) || editedImage.style.transform.includes(270)) ? imageRef.naturalHeight : imageRef.naturalWidth;
@@ -18,5 +18,17 @@ export const handleDownload = (imageRef: any, imageFile: ImageEncodeOptions, rot
         0, 0
     )
     ctx.restore();
-    return canvas;
+    //start download the edited image
+    startImagedownload(imageFile.name.split('.')[0], canvas.toDataURL());
+    return canvas.toDataURL();
+}
+
+export const startImagedownload = (imageFileName: string, image: string) => {
+    var element = document.createElement('a');
+    element.setAttribute('href', image);
+    element.setAttribute('download', imageFileName);
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
 }
