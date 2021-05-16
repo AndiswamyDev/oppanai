@@ -13,7 +13,17 @@ class OppanaiEditor extends React.Component<OppanaiEditorProps> {
         imageWidth: 0,
         imageHeight: 0,
         rotateStyle: 0,
-        flipAxis: null
+        flipAxis: '',
+        oppanaiImageResult: '',
+        imageRef: { naturalWidth: 0, naturalHeight: 0 }
+    }
+    componentDidMount = () => {
+        const objectUrl = URL.createObjectURL(this.props.imageFile);
+        const myImage: any = new Image();
+        myImage.src = objectUrl;
+        this.setState({
+            imageRef: myImage
+        });
     }
     handleEditOptions = () => {
     }
@@ -64,28 +74,36 @@ class OppanaiEditor extends React.Component<OppanaiEditorProps> {
         }
     }
     handleDownload = () => {
-        console.log('download', this.props.imageFile.type);
+        console.log('download', this.props.imageFile.type, this.state.imageRef);
         const editedImage: any = document.getElementById(CONSTANTS.OPPANAI_EDITING_IMAGE);
-        console.log('editedImage', editedImage, editedImage.width, editedImage.height, editedImage.style.transform);
         const canvas = document.createElement('canvas');
-        canvas.width = editedImage.width;
-        canvas.height = editedImage.height;
+        canvas.width = (editedImage.style.transform.includes(90) || editedImage.style.transform.includes(270)) ? this.state.imageRef.naturalHeight : this.state.imageRef.naturalWidth;
+        canvas.height = (editedImage.style.transform.includes(90) || editedImage.style.transform.includes(270)) ? this.state.imageRef.naturalWidth : this.state.imageRef.naturalHeight;
         const ctx: any = canvas.getContext('2d');
-        ctx.translate(canvas.width / 2, canvas.height / 2);
+        if (this.state.rotateStyle === 90) {
+            ctx.translate(canvas.width, 0);
+        } else if (this.state.rotateStyle === 180) {
+            ctx.translate(canvas.width, canvas.height);
+        } else if (this.state.rotateStyle === 270) {
+            ctx.translate(0, canvas.height);
+        } else {
+            ctx.translate(0, 0)
+        }
         ctx.rotate(this.state.rotateStyle * Math.PI / 180);
         ctx.drawImage(
-            editedImage,
-            -editedImage.width / 2,
-            -editedImage.height / 2,
-            editedImage.width,
-            editedImage.height
+            this.state.imageRef,
+            0, 0
         )
-        ctx.restore();
+        // ctx.filter = 'contrast(1.4) sepia(1) drop-shadow(-9px 9px 3px #e81)';
         const base64Image = canvas.toDataURL(this.props.imageFile.type);
+        ctx.restore();
+
         console.log('base64Image', base64Image);
+        this.setState({
+            oppanaiImageResult: base64Image
+        });
     }
     render() {
-        console.log(`rotate(${this.state.rotateStyle}deg) ${this.state.flipAxis ? `scale${this.state.flipAxis}(-1)` : ''}`);
         const styles = {
             transform: `rotate(${this.state.rotateStyle}deg) ${this.state.flipAxis ? `scale${this.state.flipAxis}(-1)` : ''}`
         };
@@ -96,6 +114,7 @@ class OppanaiEditor extends React.Component<OppanaiEditorProps> {
                 </label>
                 <div className='w-100 d-flex image-source-wrapper justify-content-center m-5' >
                     <img id={CONSTANTS.OPPANAI_EDITING_IMAGE} src={this.props.imageSource} className='mw-100 oppanai-hero-image' alt='hero-source' style={styles} />
+                    <img id={'preview'} src={this.state.oppanaiImageResult} className='mw-100 oppanai-hero-image' alt='hero-source' />
                     {/* <RND /> */}
                 </div>
                 <EditOption handleEditOptions={this.handleEditOptions} />
