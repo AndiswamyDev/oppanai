@@ -31,4 +31,4 @@ export const startImagedownload = (imageFileName: string, image: string) => {
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
-  }
+}
