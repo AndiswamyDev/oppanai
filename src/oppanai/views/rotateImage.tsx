@@ -15,7 +15,7 @@ class RotateImage extends React.Component<RotateImageProps> {
     }
     render() {
         return (
-            <div className='d-flex flex-row oppanai-rotate-wrapper'>
+            <div className='d-flex justify-content-around oppanai-rotate-wrapper'>
                 <label >
                     <RightRotate id={CONSTANTS.OPPANAI_RIGHT_ROTATE_ICON} className='m-3 btn rounded' width={45} height={45} fill={'#db3d7e'} onClick={(e) => this.props.handleRotateImage('right')} />
                 </label>

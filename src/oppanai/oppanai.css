@@ -23,32 +23,31 @@
     max-height: 70vh;
 }
 
-.edit-options-wrapper {
-    position: fixed;
-    bottom: 5px;
-}
-
-.oppanai-rotate-wrapper {
-    position: fixed;
-    bottom: 10%;
-}
-
-.oppanai-rotate-wrapper svg,
-.edit-options-wrapper svg {
+.oppanai-edit-tool-wrapper svg,
+.oppanai-download svg {
     transition: transform 1s;
     background-color: #fcebf2;
 }
 
-.oppanai-rotate-wrapper svg:hover,
-.edit-options-wrapper svg:hover {
+.oppanai-edit-tool-wrapper svg:hover,
+.oppanai-download svg:hover {
     transform: scale(1.2);
 }
 
-.oppanai-rotate-wrapper svg:focus,
-.edit-options-wrapper svg:focus {
+.oppanai-edit-tool-wrapper svg:focus {
     box-shadow: none;
 }
 
 .image-source-wrapper {
     max-height: fit-content;
+}
+
+.oppanai-download {
+    z-index: 1;
+    position: fixed;
+}
+
+.oppanai-edit-tool-wrapper {
+    position: fixed;
+    bottom: 2%;
 }
