@@ -20,7 +20,12 @@
 }
 
 .preview-on-edit img {
-    max-height: 70vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 8%;
+    margin: auto;
 }
 
 .oppanai-edit-tool-wrapper svg,
@@ -34,12 +39,13 @@
     transform: scale(1.2);
 }
 
-.oppanai-edit-tool-wrapper svg:focus {
+.oppanai-edit-tool-wrapper svg:focus,
+.oppanai-download svg:focus {
     box-shadow: none;
 }
 
 .image-source-wrapper {
-    max-height: fit-content;
+    max-height: 30%;
 }
 
 .oppanai-download {
