@@ -26,6 +26,7 @@
     right: 0;
     bottom: 8%;
     margin: auto;
+    transition: transform 1s;
 }
 
 .oppanai-edit-tool-wrapper svg,
