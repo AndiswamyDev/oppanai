@@ -17,16 +17,16 @@ class RotateImage extends React.Component<RotateImageProps> {
         return (
             <div className='d-flex justify-content-around oppanai-rotate-wrapper'>
                 <label >
-                    <RightRotate id={CONSTANTS.OPPANAI_RIGHT_ROTATE_ICON} className='m-3 btn rounded' width={45} height={45} fill={'#db3d7e'} onClick={(e) => this.props.handleRotateImage('right')} />
+                    <RightRotate id={CONSTANTS.OPPANAI_RIGHT_ROTATE_ICON} className='m-2 btn rounded' width={40} height={40} fill={'#db3d7e'} onClick={(e) => this.props.handleRotateImage('right')} />
                 </label>
                 <label >
-                    <LeftRotate id={CONSTANTS.OPPANAI_LEFT_ROTATE_ICON} className='m-3 btn rounded' width={45} height={45} fill={'#db3d7e'} onClick={(e) => this.props.handleRotateImage('left')} />
+                    <LeftRotate id={CONSTANTS.OPPANAI_LEFT_ROTATE_ICON} className='m-2 btn rounded' width={40} height={40} fill={'#db3d7e'} onClick={(e) => this.props.handleRotateImage('left')} />
                 </label>
                 <label >
-                    <FlipHorizontal id={CONSTANTS.OPPANAI_HORIZONTAL_ROTATE_ICON} className='m-3 btn rounded' width={45} height={45} fill={'#db3d7e'} onClick={(e) => this.props.handleRotateImage('flip-h')} />
+                    <FlipHorizontal id={CONSTANTS.OPPANAI_HORIZONTAL_ROTATE_ICON} className='m-2 btn rounded' width={40} height={40} fill={'#db3d7e'} onClick={(e) => this.props.handleRotateImage('flip-h')} />
                 </label>
                 <label >
-                    <FlipVertical id={CONSTANTS.OPPANAI_VERTICAL_ROTATE_ICON} className='m-3 btn rounded' width={45} height={45} fill={'#db3d7e'} onClick={(e) => this.props.handleRotateImage('flip-v')} />
+                    <FlipVertical id={CONSTANTS.OPPANAI_VERTICAL_ROTATE_ICON} className='m-2 btn rounded' width={40} height={40} fill={'#db3d7e'} onClick={(e) => this.props.handleRotateImage('flip-v')} />
                 </label>
             </div>
         )

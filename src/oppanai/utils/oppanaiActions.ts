@@ -32,3 +32,15 @@ export const startImagedownload = (imageFileName: string, image: string) => {
     element.click();
     document.body.removeChild(element);
 }
+
+export const zoomOut = () => {
+    const imageWrapper: any = document.getElementById(CONSTANTS.OPPANAI_EDITING_IMAGE);
+    const currentWidth = imageWrapper?.clientWidth as number;
+    imageWrapper.style.width = (currentWidth - 100) + "px";
+}
+
+export const zoomIn = () => {
+    const imageWrapper: any = document.getElementById(CONSTANTS.OPPANAI_EDITING_IMAGE);
+    const currentWidth = imageWrapper?.clientWidth as number;
+    imageWrapper.style.width = (currentWidth + 100) + "px";
+}
