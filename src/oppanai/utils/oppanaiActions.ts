@@ -1,4 +1,6 @@
 import {CONSTANTS} from '../constants';
+var zoomInCount = 0;
+var zoomOutCount = 0;
 
 export const handleDownload = (imageRef: any, imageFile: HTMLImageElement, rotateStyle: number) => {
     const editedImage: any = document.getElementById(CONSTANTS.OPPANAI_EDITING_IMAGE);
@@ -33,14 +35,30 @@ export const startImagedownload = (imageFileName: string, image: string) => {
     document.body.removeChild(element);
 }
 
-export const zoomOut = () => {
+export const zoomOut = (zoomOutCount: number) => {
+    zoomInCount = 0;
     const imageWrapper: any = document.getElementById(CONSTANTS.OPPANAI_EDITING_IMAGE);
     const currentWidth = imageWrapper?.clientWidth as number;
-    imageWrapper.style.width = (currentWidth - 100) + "px";
+    imageWrapper.style.width = (currentWidth - zoomOutCount) + "px";
 }
 
-export const zoomIn = () => {
+export const zoomIn = (zoomInCount: number) => {
+    zoomOutCount = 0;
     const imageWrapper: any = document.getElementById(CONSTANTS.OPPANAI_EDITING_IMAGE);
     const currentWidth = imageWrapper?.clientWidth as number;
-    imageWrapper.style.width = (currentWidth + 100) + "px";
+    imageWrapper.style.width = (currentWidth + zoomInCount) + "px";
 }
+
+window.addEventListener('wheel', function (event) {
+const oppanaiEditorWrapper = document.getElementById('oppanai-editor-wrapper');
+    if (oppanaiEditorWrapper) {
+        if (event.deltaY < 0) {
+            zoomInCount++;
+            zoomIn(zoomInCount)
+        }
+        else if (event.deltaY > 0) {
+            zoomOutCount++;
+            zoomOut(zoomOutCount)
+        }
+    }
+});
