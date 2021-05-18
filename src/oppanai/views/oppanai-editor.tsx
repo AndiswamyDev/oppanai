@@ -4,7 +4,7 @@ import EditOption from './editOptions';
 import RotateImage from './rotateImage';
 import { ReactComponent as DownloadIcon } from '../assets/icons/download.svg';
 import { CONSTANTS } from '../constants';
-import { handleDownload } from '../utils/oppanaiActions';
+import { handleDownload, zoomOut, zoomIn } from '../utils/oppanaiActions';
 interface OppanaiEditorProps {
     imageSource: string;
     imageFile: any;
@@ -88,7 +88,7 @@ class OppanaiEditor extends React.Component<OppanaiEditorProps> {
             <div className='d-flex flex-column align-items-center oppanai-editor-wrapper preview-on-edit' >
                 <div className='d-flex justify-content-center'>
                     <label className='oppanai-download' onClick={this.handleDownloadResult}>
-                        <DownloadIcon id={CONSTANTS.OPPANAI_DOWNLOAD_IMAGE} className='m-3 btn rounded' width={45} height={45} fill={'#db3d7e'} />
+                        <DownloadIcon id={CONSTANTS.OPPANAI_DOWNLOAD_IMAGE} className='m-2 btn rounded' width={40} height={40} fill={'#db3d7e'} />
                     </label>
                 </div>
                 <div className='w-100 d-flex image-source-wrapper justify-content-center m-5' >
