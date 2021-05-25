@@ -33,7 +33,7 @@
   "jest": {
     "coveragePathIgnorePatterns": [
       "<rootDir>/node_modules/",
-      "<rootDir>/src/assets/",
+      "<rootDir>/src/oppanai/assets",
       "src/serviceWorker.ts"
     ]
   },
