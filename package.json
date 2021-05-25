@@ -30,6 +30,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint && yarn test:coverage",
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "jest": {
     "coveragePathIgnorePatterns": [
       "<rootDir>/node_modules/",
