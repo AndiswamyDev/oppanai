@@ -42,7 +42,7 @@ class UploadOptions extends React.Component<uploadProps>{
         return (
             <>{this.state.startEdit ?
                 <OppanaiEditor imageSource={this.state.imageSource} imageFile={this.state.uploadedImageData} /> :
-                <div className='d-flex justify-content-center m-2'>
+                <div className='d-flex justify-content-center upload-wrapper m-2'>
                     <Card className='m-3 upload-img-option oppanai-box-shadow' >
                         <Card.Body className=''>
                             <h5 className='d-flex justify-content-center'>{CONSTANTS.UPLOAD_FROM_PC}</h5>
