@@ -2,12 +2,22 @@ import { shallow } from 'enzyme';
 import Oppanai from '../oppanai';
 import UploadImageOption from '../views/uploadOptions';
 import StartEditButton from '../components/startEdit/startEdit';
+import PreviewBeforeEdit from '../views/previewBeforeEdit';
 describe('Given on a Oppanai image editor tool', () => {
-    const oppanaiObj = new Oppanai();
-    const uploadImageOptionObj = new UploadImageOption();
+    const file = {
+        "name": "photo.png",
+        "lastModified": 1621266984867,
+        "lastModifiedDate": "Mon May 17 2021 21:26:24 GMT+0530 (India Standard Time)",
+        "size": 110573,
+        "type": "image/png",
+    }
+    global.URL.createObjectURL = jest.fn();
+    const oppanaiObj = new Oppanai({});
+    const uploadImageOptionObj = new UploadImageOption({ editView: oppanaiObj.editView });
     const oppanaiHomepageWrapper = shallow(<Oppanai />);
     const oppanaiUploadOptionWrapper = shallow(<UploadImageOption editView={oppanaiObj.editView} />);
-    const StartEditButtonWrapper = shallow(<StartEditButton isFileUploaded={uploadImageOptionObj.state.isFileUploaded} isFileError={uploadImageOptionObj.state.isFileError} handleStartEdit={uploadImageOptionObj.handleStartEdit} />);
+    const startEditButtonWrapper = shallow(<StartEditButton isFileUploaded={uploadImageOptionObj.state.isFileUploaded} isFileError={uploadImageOptionObj.state.isFileError} handleStartEdit={uploadImageOptionObj.handleStartEdit} />);
+    const previewBeforeEdit = shallow(<PreviewBeforeEdit imageMetaData={file} throwInvalidImageAlert={uploadImageOptionObj.throwInvalidImageAlert} />)
     describe('When user is in home page', () => {
         const oppanaiHomePageWrapper = oppanaiHomepageWrapper.find('.oppanai-wrapper');
         test('Test the main oppanai wrapper exists or not', () => {
@@ -26,9 +36,9 @@ describe('Given on a Oppanai image editor tool', () => {
         });
         test('Check the local upload option there', () => {
 
-            expect(oppanaiUploadOptionWrapper.find('h5').text()).toEqual('Upload from PC');
-            expect(oppanaiUploadOptionWrapper.find('CardText').text()).toEqual('Browse an Image from your device to edit')
-            expect(oppanaiUploadOptionWrapper.find('#oppanai-upload-button').children().at(0).type().render().props.children).toEqual('upload-image-icon.svg')
+            expect(oppanaiUploadOptionWrapper.find('p').text()).toEqual('Upload from PC');
+            expect(oppanaiUploadOptionWrapper.find('CardText').text()).toEqual('Browse an Image from your device to edit');
+            expect(oppanaiUploadOptionWrapper.find('#oppanai-upload-button').children().at(0).html()).toEqual('<svg width="50" height="50">upload-image-icon.svg</svg>')
             expect(oppanaiUploadOptionWrapper.find('#oppanai-upload-button').children().at(1).type()).toBe('input')
         });
     });
@@ -37,20 +47,17 @@ describe('Given on a Oppanai image editor tool', () => {
             expect(oppanaiUploadOptionWrapper.find('#oppanai-upload-button').children().at(1).prop('accept')).toEqual('image/*')
         });
         test('Test the Start Edit button should be inactive, when no image is uploaded', () => {
-            expect(StartEditButtonWrapper.find('#oppanai-start-edit-button').at(0).props().disabled).toBeTruthy();
+            expect(startEditButtonWrapper.find('#oppanai-start-edit-button').at(0).props().disabled).toBeTruthy();
         });
         test('Check the image uploaded as valid', () => {
-            const loginComponent = shallow(<UploadImageOption editView={oppanaiObj.editView} />);
-            const file = {
-                lastModified: 1621266984867,
-                name: "photo.png",
-                size: 110573,
-                type: "image/png",
-            }
-            // const readFileMock = jest.spyOn(uploadImageOptionObj, 'handleLocalFileUpload');
-            loginComponent.find('#oppanai-upload-button').children().at(1).simulate('change', { target: { files: [file] } });
+            const readFileMock = jest.spyOn(uploadImageOptionObj, 'handleLocalFileUpload');
+            oppanaiUploadOptionWrapper.find('#oppanai-upload-button').children().at(1).simulate('change', { target: { files: [file] } });
             const StartButton = shallow(<StartEditButton isFileUploaded={true} isFileError={false} handleStartEdit={uploadImageOptionObj.handleStartEdit} />);
             expect(StartButton.find('#oppanai-start-edit-button').at(0).props().disabled).not.toBeTruthy();
+        });
+        test('Check the image uploaded is rendered into preview area', () => {
+            expect(previewBeforeEdit.find('Image').at(0).html()).toEqual('<img title="photo.png" class="mw-100 mh-100"/>');
+            previewBeforeEdit.find('Image').prop('onError');
         });
     });
 });
