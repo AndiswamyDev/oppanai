@@ -5,6 +5,7 @@ import SuccessFailUploadStatus from '../components/uploadedStatus/successFailUpl
 import { CONSTANTS } from '../constants';
 import StartEdit from '../components/startEdit/startEdit';
 import OppanaiEditor from './oppanai-editor';
+import { createBlobImageUrl } from '../utils/handlers';
 
 interface uploadProps {
     editView: (isEditView: boolean) => void;
@@ -34,7 +35,7 @@ class UploadOptions extends React.Component<uploadProps>{
     handleStartEdit = () => {
         this.setState({
             startEdit: true,
-            imageSource: URL.createObjectURL(this.state.uploadedImageData)
+            imageSource: createBlobImageUrl(this.state.uploadedImageData)
         });
         this.props.editView(true)
     }
@@ -45,7 +46,7 @@ class UploadOptions extends React.Component<uploadProps>{
                 <div className='d-flex justify-content-center upload-wrapper m-2'>
                     <Card className='m-3 upload-img-option oppanai-box-shadow' >
                         <Card.Body className=''>
-                            <h5 className='d-flex justify-content-center'>{CONSTANTS.UPLOAD_FROM_PC}</h5>
+                            <p className='d-flex justify-content-center h5'>{CONSTANTS.UPLOAD_FROM_PC}</p>
                             <Card.Title className='d-flex justify-content-center'>
                                 <label id={CONSTANTS.OPPANAI_UPLOAD_BUTTON} className='btn border oppanai-box-shadow' >
                                     <UploadImageIcon width={50} height={50} />
@@ -53,7 +54,7 @@ class UploadOptions extends React.Component<uploadProps>{
                                 </label>
                             </Card.Title>
                             <Card.Text className='d-flex justify-content-center'>
-                                {CONSTANTS.BROWSE_AN_IMAGE_FROM_YOUR_DEVICE_TO_EDIT}
+                                <small>{CONSTANTS.BROWSE_AN_IMAGE_FROM_YOUR_DEVICE_TO_EDIT}</small>
                             </Card.Text>
                             <SuccessFailUploadStatus isFileUploaded={this.state.isFileUploaded} uploadedImageData={this.state.uploadedImageData} isFileError={this.state.isFileError} throwInvalidImageAlert={this.throwInvalidImageAlert} />
                             <StartEdit isFileUploaded={this.state.isFileUploaded} isFileError={this.state.isFileError} handleStartEdit={this.handleStartEdit} />

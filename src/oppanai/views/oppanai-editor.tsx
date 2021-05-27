@@ -5,6 +5,7 @@ import RotateImage from './rotateImage';
 import { ReactComponent as DownloadIcon } from '../assets/icons/download.svg';
 import { CONSTANTS } from '../constants';
 import { handleDownload } from '../utils/oppanaiActions';
+import { createBlobImageUrl } from '../utils/handlers';
 interface OppanaiEditorProps {
     imageSource: string;
     imageFile: any;
@@ -19,7 +20,7 @@ class OppanaiEditor extends React.Component<OppanaiEditorProps> {
         imageRef: { naturalWidth: 0, naturalHeight: 0 }
     }
     componentDidMount = () => {
-        const objectUrl = URL.createObjectURL(this.props.imageFile);
+        const objectUrl = createBlobImageUrl(this.props.imageFile);
         const myImage: any = new Image();
         myImage.src = objectUrl;
         this.setState({
