@@ -37,7 +37,7 @@ class UploadOptions extends React.Component<uploadProps>{
             startEdit: true,
             imageSource: createBlobImageUrl(this.state.uploadedImageData)
         });
-        this.props.editView(true)
+        this.props.editView(true);
     }
     render() {
         return (
