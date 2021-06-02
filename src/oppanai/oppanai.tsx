@@ -12,9 +12,11 @@ class Oppanai extends React.Component {
         initiateTooltip();
     }
     editView = (isEditView: boolean) => {
+        console.log('&&&&&&&&&&&&7');
         this.setState({
             isEditView: isEditView
         });
+        console.log(this.state.isEditView);
     }
     render() {
         return (
