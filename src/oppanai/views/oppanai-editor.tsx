@@ -20,8 +20,6 @@ class OppanaiEditor extends React.Component<OppanaiEditorProps> {
         imageRef: { naturalWidth: 0, naturalHeight: 0 }
     }
     componentDidMount = () => {
-        console.log(this.props);
-
         const objectUrl = createBlobImageUrl(this.props.imageFile);
         const myImage: any = new Image();
         myImage.src = objectUrl;
