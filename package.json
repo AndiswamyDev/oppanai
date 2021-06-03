@@ -43,7 +43,8 @@
     "coveragePathIgnorePatterns": [
       "<rootDir>/node_modules/",
       "<rootDir>/src/oppanai/assets",
-      "src/serviceWorker.ts"
+      "src/serviceWorker.ts",
+      "src/reportWebVitals.ts"
     ]
   },
   "eslintConfig": {

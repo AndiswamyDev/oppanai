@@ -74,7 +74,6 @@ class OppanaiEditor extends React.Component<OppanaiEditorProps> {
             default:
                 break;
         }
-        return 0;
     }
     handleDownloadResult = () => {
         const dataURl = handleDownload(this.state.imageRef, this.props.imageFile, this.state.rotateStyle);
