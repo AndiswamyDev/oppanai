@@ -20,16 +20,16 @@ class EditOptions extends React.Component<EditOptionProps> {
         return (
             <div className='d-flex justify-content-around edit-options-wrapper'>
                 <label className=''>
-                    <RotateIcon id={CONSTANTS.OPPANAI_ROTATE_ICON} className='m-2 btn rounded' width={50} height={50} fill={'#db3d7e'} onClick={(e) => this.props.handleEditOptions()} />
+                    <RotateIcon id={CONSTANTS.OPPANAI_ROTATE_ICON} className='m-2 btn rounded' width={50} height={50} fill={'#db3d7e'} />
                 </label>
                 <label className=''>
-                    <CropIcon id={CONSTANTS.OPPANAI_CROP_ICON} className='m-2 btn rounded' width={50} height={50} fill={'#db3d7e'} onClick={(e) => this.props.handleEditOptions()} />
+                    <CropIcon id={CONSTANTS.OPPANAI_CROP_ICON} className='m-2 btn rounded' width={50} height={50} fill={'#db3d7e'} />
                 </label>
                 <label >
-                    <FilterIcon id={CONSTANTS.OPPANAI_FILTER_ICON} className='m-2 btn rounded' width={50} height={50} fill={'#db3d7e'} onClick={(e) => this.props.handleEditOptions()} />
+                    <FilterIcon id={CONSTANTS.OPPANAI_FILTER_ICON} className='m-2 btn rounded' width={50} height={50} fill={'#db3d7e'} />
                 </label>
                 <label>
-                    <ColorIcon id={CONSTANTS.OPPANAI_COLOR_ICON} className='m-2 btn rounded' width={50} height={50} fill={'#db3d7e'} onClick={(e) => this.props.handleEditOptions()} />
+                    <ColorIcon id={CONSTANTS.OPPANAI_COLOR_ICON} className='m-2 btn rounded' width={50} height={50} fill={'#db3d7e'} />
                 </label>
             </div>
 
