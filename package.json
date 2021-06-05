@@ -14,6 +14,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "bootstrap": "^5.0.0-beta1",
+    "eslint-plugin-spellcheck": "^0.0.17",
     "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
@@ -30,12 +31,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "test:coverage": "react-scripts test --coverage --watchAll=false",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --quiet",
-    "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn lint && yarn test:coverage",
+      "pre-push": "yarn test:coverage",
       "pre-commit": "pretty-quick --staged"
     }
   },
@@ -77,6 +76,7 @@
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
+    "husky": "^6.0.0",
     "prettier": "^2.2.1"
   }
 }
