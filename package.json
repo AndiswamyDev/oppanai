@@ -1,7 +1,54 @@
 {
-  "name": "my-app",
+  "name": "oppanai",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
+    "lint": "pretty-quick --staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AndiswamyDev/oppanai"
+  },
+  "author": "Andiswamy",
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn test:coverage",
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/src/oppanai/assets",
+      "src/serviceWorker.ts",
+      "src/reportWebVitals.ts",
+      "src/index",
+      "src/oppanai/components/rnd"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
@@ -24,47 +71,6 @@
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "test:coverage": "react-scripts test --coverage --watchAll=false",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --quiet",
-    "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn lint && yarn test:coverage",
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
-  "jest": {
-    "coveragePathIgnorePatterns": [
-      "<rootDir>/node_modules/",
-      "<rootDir>/src/oppanai/assets",
-      "src/serviceWorker.ts",
-      "src/reportWebVitals.ts"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
     "@types/bootstrap": "^5.0.12",
     "@types/enzyme": "^3.10.8",
@@ -77,6 +83,8 @@
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
-    "prettier": "^2.2.1"
+    "husky": "^6.0.0",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0"
   }
 }

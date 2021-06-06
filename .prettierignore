@@ -5,3 +5,9 @@
 **/package-lock.json
 **/.eslintrc.js
 **/tsconfig.json
+**/coverage
+**/build
+**/src/setupTests.ts
+**/.prettierrc.json 
+**/public/index.html
+**/README.md
