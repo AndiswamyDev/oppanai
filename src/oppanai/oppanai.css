@@ -1,5 +1,5 @@
 .oppanai-logo {
-    color: #db3d7e;
+    color: #da2e75;
 }
 
 .upload-img-option {
@@ -27,6 +27,7 @@
     bottom: 8%;
     margin: auto;
     transition: transform 1s;
+    min-width: 30px;
 }
 
 .oppanai-edit-tool-wrapper svg,

@@ -6,7 +6,7 @@ class RND extends React.Component {
         rndStyle: {
             alignItems: 'center',
             justifyContent: 'center',
-            border: 'solid 2px #db3d7e',
+            border: 'solid 2px #da2e75',
             background: 'transparent',
         },
         default: {
