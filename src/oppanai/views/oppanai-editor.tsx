@@ -89,7 +89,7 @@ class OppanaiEditor extends React.Component<OppanaiEditorProps> {
             <div id='oppanai-editor-wrapper' className='d-flex flex-column align-items-center preview-on-edit' >
                 <div className='d-flex justify-content-center'>
                     <label className='oppanai-download' onClick={this.handleDownloadResult}>
-                        <DownloadIcon id={CONSTANTS.OPPANAI_DOWNLOAD_IMAGE} className='m-2 btn rounded' width={40} height={40} fill={'#db3d7e'} />
+                        <DownloadIcon id={CONSTANTS.OPPANAI_DOWNLOAD_IMAGE} className='m-2 btn rounded' width={40} height={40} fill={'#da2e75'} />
                     </label>
                 </div>
                 <div className='w-100 d-flex image-source-wrapper justify-content-center m-5' >
