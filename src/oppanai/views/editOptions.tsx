@@ -18,7 +18,7 @@ class EditOptions extends React.Component<EditOptionProps> {
     }
     render() {
         return (
-            <div className='d-flex justify-content-around edit-options-wrapper'>
+            <div className={`d-flex justify-content-around ${CONSTANTS.OPPANAI_EDIT_OPTIONS_WRAPPER}`}>
                 <label className=''>
                     <RotateIcon id={CONSTANTS.OPPANAI_ROTATE_ICON} className='m-2 btn rounded' width={50} height={50} fill={'#da2e75'} />
                 </label>

@@ -86,17 +86,17 @@ class OppanaiEditor extends React.Component<OppanaiEditorProps> {
             transform: `rotate(${this.state.rotateStyle}deg) ${this.state.flipAxis ? `scale${this.state.flipAxis}(-1)` : ''}`
         };
         return (
-            <div id='oppanai-editor-wrapper' className='d-flex flex-column align-items-center preview-on-edit' >
+            <div id={CONSTANTS.OPPANAI_EDITOR_WRAPPER} className='d-flex flex-column align-items-center preview-on-edit' >
                 <div className='d-flex justify-content-center'>
-                    <label className='oppanai-download' onClick={this.handleDownloadResult}>
+                    <label className={CONSTANTS.OPPANAI_DOWNLOAD} onClick={this.handleDownloadResult}>
                         <DownloadIcon id={CONSTANTS.OPPANAI_DOWNLOAD_IMAGE} className='m-2 btn rounded' width={40} height={40} fill={'#da2e75'} />
                     </label>
                 </div>
-                <div className='w-100 d-flex image-source-wrapper justify-content-center m-5' >
-                    <img id={CONSTANTS.OPPANAI_EDITING_IMAGE} src={this.props.imageSource} className='mw-100 oppanai-hero-image' alt='hero-source' style={styles} />
+                <div className={`w-100 d-flex ${CONSTANTS.OPPANAI_IMAGE_SOURCE_WRAPPER} justify-content-center m-5`} >
+                    <img id={CONSTANTS.OPPANAI_EDITING_IMAGE} src={this.props.imageSource} className={`mw-100 ${CONSTANTS.OPPANAI_HERO_IMAGE}`} alt='hero-source' style={styles} />
                     {/* <RND /> */}
                 </div>
-                <div className='oppanai-edit-tool-wrapper'>
+                <div className={CONSTANTS.OPPANAI_EDIT_TOOL_WRAPPER}>
                     <RotateImage handleRotateImage={this.handleRotateImage} />
                     <EditOption handleEditOptions={this.handleEditOptions} />
                 </div>

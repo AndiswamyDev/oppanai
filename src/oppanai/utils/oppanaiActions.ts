@@ -12,13 +12,13 @@ export const handleDownload = (imageRef: any, imageFile: HTMLImageElement, rotat
     if (rotateStyle === 90) ctx?.translate(canvas.width, 0);
     else if (rotateStyle === 180) ctx?.translate(canvas.width, canvas.height);
     else if (rotateStyle === 270) ctx?.translate(0, canvas.height);
-    else ctx?.translate(0, 0)
+    else ctx?.translate(0, 0);
     //Rotate image by converting Degree into Radian
     ctx?.rotate(rotateStyle * Math.PI / 180);
     ctx?.drawImage(
         imageRef,
         0, 0
-    )
+    );
     ctx?.restore();
     //start download the edited image
     startImagedownload(imageFile.name.split('.')[0], canvas.toDataURL());
@@ -33,13 +33,15 @@ export const startImagedownload = (imageFileName: string, image: string) => {
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
+    return 0;
 }
 
 export const zoomOut = (zoomOutCount: number) => {
     zoomInCount = 0;
-    const imageWrapper: any = document.getElementById(CONSTANTS.OPPANAI_EDITING_IMAGE);
+    const imageWrapper: any = document.getElementById(CONSTANTS.OPPANAI_EDITING_IMAGE);    
     const currentWidth = imageWrapper?.clientWidth as number;
     imageWrapper.style.width = (currentWidth - zoomOutCount) + "px";
+    return 0;
 }
 
 export const zoomIn = (zoomInCount: number) => {
@@ -47,18 +49,23 @@ export const zoomIn = (zoomInCount: number) => {
     const imageWrapper: any = document.getElementById(CONSTANTS.OPPANAI_EDITING_IMAGE);
     const currentWidth = imageWrapper?.clientWidth as number;
     imageWrapper.style.width = (currentWidth + zoomInCount) + "px";
+    return 0;
 }
 
 window.addEventListener('wheel', function (event) {
-const oppanaiEditorWrapper = document.getElementById('oppanai-editor-wrapper');
+    handleWheelEvent(event);
+});
+
+export const handleWheelEvent = (event: WheelEvent) => {
+    const oppanaiEditorWrapper = document.getElementById(CONSTANTS.OPPANAI_EDITOR_WRAPPER);
     if (oppanaiEditorWrapper) {
         if (event.deltaY < 0) {
             zoomInCount++;
-            zoomIn(zoomInCount)
-        }
-        else if (event.deltaY > 0) {
+            zoomIn(zoomInCount);
+        } else if (event.deltaY > 0) {
             zoomOutCount++;
-            zoomOut(zoomOutCount)
+            zoomOut(zoomOutCount);
         }
     }
-});
+    return 0;
+}
