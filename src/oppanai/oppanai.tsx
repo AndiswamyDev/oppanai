@@ -12,15 +12,13 @@ class Oppanai extends React.Component {
         initiateTooltip();
     }
     editView = (isEditView: boolean) => {
-        console.log('&&&&&&&&&&&&7');
         this.setState({
             isEditView: isEditView
         });
-        console.log(this.state.isEditView);
     }
     render() {
         return (
-            <div className='container-fluid oppanai-wrapper'>
+            <div className={`container-fluid ${CONSTANTS.OPPANAI_WRAPPER}`}>
                 {!this.state.isEditView ?
                     <div className='d-flex justify-content-center oppanai-logo m-2'>
                         <h3>{CONSTANTS.OPPANAI}</h3>

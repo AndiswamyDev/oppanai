@@ -1,13 +1,13 @@
 import { shallow } from 'enzyme';
 import OppanaiEditor from '../views/oppanai-editor';
 import RotateImage from '../views/rotateImage';
-import { mockData } from './mockData';
 import * as actions from '../utils/oppanaiActions';
+import { mockData } from './mockData';
 
 describe('Given in Oppanai Editor', () => {
     global.URL.createObjectURL = jest.fn();
     const oppanaiEditor = new OppanaiEditor({ imageSource: mockData.imageBlobUrl, imageFile: mockData.file });
-    const oppanaiEditorWrapper = shallow(<OppanaiEditor imageSource={mockData.imageBlobUrl} imageFile={mockData.file} />)
+    const oppanaiEditorWrapper = shallow(<OppanaiEditor imageSource={mockData.imageBlobUrl} imageFile={mockData.file} />);
     const rotateImageWrapper = shallow(<RotateImage handleRotateImage={oppanaiEditor.handleRotateImage} />);
 
     const handleRotateStyles = (angle: number) => {

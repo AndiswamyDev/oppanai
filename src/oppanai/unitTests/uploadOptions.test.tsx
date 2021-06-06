@@ -1,4 +1,4 @@
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Oppanai from '../oppanai';
 import UploadImageOption from '../views/uploadOptions';
 import StartEditButton from '../components/startEdit/startEdit';
