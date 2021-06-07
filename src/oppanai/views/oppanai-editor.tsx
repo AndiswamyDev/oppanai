@@ -76,10 +76,7 @@ class OppanaiEditor extends React.Component<OppanaiEditorProps> {
         }
     }
     handleDownloadResult = () => {
-        const dataURl = handleDownload(this.state.imageRef, this.props.imageFile, this.state.rotateStyle);
-        this.setState({
-            oppanaiImageResult: dataURl
-        });
+        handleDownload(this.state.imageRef, this.props.imageFile, this.state.rotateStyle, this.state.flipAxis);
     }
     render() {
         const styles = {

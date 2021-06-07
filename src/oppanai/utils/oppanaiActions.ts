@@ -2,7 +2,8 @@ import {CONSTANTS} from '../constants';
 var zoomInCount = 0;
 var zoomOutCount = 0;
 
-export const handleDownload = (imageRef: any, imageFile: HTMLImageElement, rotateStyle: number) => {
+export const handleDownload = (imageRef: any, imageFile: HTMLImageElement, rotateStyle: number, flipAxis: string) => {
+    console.log('flipAxis', flipAxis);
     const editedImage: any = document.getElementById(CONSTANTS.OPPANAI_EDITING_IMAGE);
     const canvas = document.createElement('canvas');
     canvas.width = (editedImage?.style.transform.includes(90) || editedImage?.style.transform.includes(270)) ? imageRef.naturalHeight : imageRef.naturalWidth;
@@ -15,14 +16,24 @@ export const handleDownload = (imageRef: any, imageFile: HTMLImageElement, rotat
     else ctx?.translate(0, 0);
     //Rotate image by converting Degree into Radian
     ctx?.rotate(rotateStyle * Math.PI / 180);
+    if (flipAxis === 'X') {
+        console.log('xxxxxxxxxxxxxxxX');
+        ctx?.translate(canvas.width, 0);
+        ctx?.scale(-1, 1);
+    } else {
+        console.log('yyyyyyyyyyyyy');
+        ctx?.translate(0, canvas.height);
+        ctx?.scale(1, -1);
+    }
     ctx?.drawImage(
         imageRef,
         0, 0
     );
     ctx?.restore();
+    console.log('CANVAS URL', canvas.toDataURL());
     //start download the edited image
     startImagedownload(imageFile.name.split('.')[0], canvas.toDataURL());
-    return canvas.toDataURL();
+    return 0;
 }
 
 export const startImagedownload = (imageFileName: string, image: string) => {
