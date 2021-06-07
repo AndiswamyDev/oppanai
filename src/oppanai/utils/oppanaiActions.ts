@@ -17,11 +17,9 @@ export const handleDownload = (imageRef: any, imageFile: HTMLImageElement, rotat
     //Rotate image by converting Degree into Radian
     ctx?.rotate(rotateStyle * Math.PI / 180);
     if (flipAxis === 'X') {
-        console.log('xxxxxxxxxxxxxxxX');
         ctx?.translate(canvas.width, 0);
         ctx?.scale(-1, 1);
     } else {
-        console.log('yyyyyyyyyyyyy');
         ctx?.translate(0, canvas.height);
         ctx?.scale(1, -1);
     }
@@ -30,7 +28,6 @@ export const handleDownload = (imageRef: any, imageFile: HTMLImageElement, rotat
         0, 0
     );
     ctx?.restore();
-    console.log('CANVAS URL', canvas.toDataURL());
     //start download the edited image
     startImagedownload(imageFile.name.split('.')[0], canvas.toDataURL());
     return 0;
