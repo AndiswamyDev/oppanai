@@ -17,8 +17,8 @@
   "author": "Andiswamy Rajagopal",
   "husky": {
     "hooks": {
-      "pre-push": "yarn test:coverage",
-      "pre-commit": "yarn lint"
+      "pre-commit": "yarn lint",
+      "pre-push": "yarn test:coverage"
     }
   },
   "jest": {
