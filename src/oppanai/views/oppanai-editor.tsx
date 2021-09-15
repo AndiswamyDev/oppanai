@@ -2,6 +2,7 @@ import React from 'react';
 import EditOption from './editOptions';
 // import RND from '../components/rnd/reactRND';
 import RotateImage from './rotateImage';
+import FilterImage from './filterOptions';
 import { ReactComponent as DownloadIcon } from '../assets/icons/download.svg';
 import { CONSTANTS } from '../constants';
 import { handleDownload } from '../utils/oppanaiActions';
@@ -17,7 +18,8 @@ class OppanaiEditor extends React.Component<OppanaiEditorProps> {
         rotateStyle: 0,
         flipAxis: '',
         oppanaiImageResult: '',
-        imageRef: { naturalWidth: 0, naturalHeight: 0 }
+        imageRef: { naturalWidth: 0, naturalHeight: 0 },
+        chosenEditOption: 'rotate'
     }
     componentDidMount = () => {
         const objectUrl = createBlobImageUrl(this.props.imageFile);
@@ -27,7 +29,10 @@ class OppanaiEditor extends React.Component<OppanaiEditorProps> {
             imageRef: myImage
         });
     }
-    handleEditOptions = () => {
+    handleEditOptions = (option: string) => {
+        this.setState({
+            chosenEditOption: option
+        });
     }
     handleRotateImage = (rotateType: string) => {
         switch (rotateType) {
@@ -94,7 +99,8 @@ class OppanaiEditor extends React.Component<OppanaiEditorProps> {
                     {/* <RND /> */}
                 </div>
                 <div className={CONSTANTS.OPPANAI_EDIT_TOOL_WRAPPER}>
-                    <RotateImage handleRotateImage={this.handleRotateImage} />
+                    {this.state.chosenEditOption === 'rotate' && <RotateImage handleRotateImage={this.handleRotateImage} />}
+                    {this.state.chosenEditOption === 'filter' && <FilterImage imageSource={this.props.imageSource} />}
                     <EditOption handleEditOptions={this.handleEditOptions} />
                 </div>
             </div>

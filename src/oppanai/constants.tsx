@@ -26,6 +26,8 @@ export const CONSTANTS = {
     OPPANAI_VERTICAL_ROTATE_ICON: 'oppanai-vertical-rotate-icon',
     //Rotate options
     OPPANAI_ROTATE_WRAPPER: 'oppanai-rotate-wrapper',
+    // Filter Options
+    OPPANAI_FILTER_WRAPPER: 'oppanai-filter-wrapper',
     //Download button - https://stackoverflow.com/questions/35336833/jquery-rotate-an-image-and-save-them-with-same-name-file-overwrite
     OPPANAI_DOWNLOAD: 'oppanai-download',
     OPPANAI_DOWNLOAD_IMAGE: 'oppanai-download-image',
