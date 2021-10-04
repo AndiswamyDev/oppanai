@@ -41,7 +41,7 @@ describe('Given on a Oppanai Home page ', () => {
         test('Verify the oppanai has three segments children', () => {
             expect(oppanaiEditor.find('#oppanai-editor-wrapper').children().length).toBe(3);
             expect(oppanaiEditor.find('.oppanai-download').type()).toBe('label');
-            expect(oppanaiEditor.find('.oppanai-edit-tool-wrapper').children().length).toBe(2);
+            expect(oppanaiEditor.find('.oppanai-edit-tool-wrapper').children().length).toBe(1);
             expect(oppanaiEditor.find('.image-source-wrapper').children().type()).toBe('img');
         });
         test('Check the rotate options rendered properly', () => {
@@ -57,9 +57,8 @@ describe('Given on a Oppanai Home page ', () => {
             const editOptionWrapper = editOptions.find('.edit-options-wrapper');
             expect(editOptionWrapper).not.toBeNull();
             expect(editOptionWrapper.childAt(0).childAt(0).props().id).toEqual('oppanai-rotate-icon');
-            expect(editOptionWrapper.childAt(1).childAt(0).props().id).toEqual('oppanai-crop-icon');
-            expect(editOptionWrapper.childAt(2).childAt(0).props().id).toEqual('oppanai-filter-icon');
-            expect(editOptionWrapper.childAt(3).childAt(0).props().id).toEqual('oppanai-color-icon');
+            expect(editOptionWrapper.childAt(1).childAt(0).props().id).toEqual('oppanai-filter-icon');
+            expect(editOptionWrapper.childAt(2).childAt(0).props().id).toEqual('oppanai-color-icon');
         });
     });
     describe('When user applies rotate options', () => {
