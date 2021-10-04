@@ -3,6 +3,7 @@ import { CONSTANTS } from '../constants';
 
 interface FilterImageProps {
     imageSource: string;
+    handleFilterSelection: (filterOption: string) => void;
 }
 class FilterImage extends React.Component<FilterImageProps> {
     state = {
@@ -14,9 +15,9 @@ class FilterImage extends React.Component<FilterImageProps> {
     }
     render() {
         return (
-            <div className={`d-flex justify-content-around m-5 ${CONSTANTS.OPPANAI_FILTER_WRAPPER}`}>
+            <div className={`d-flex justify-content-around m-2 ${CONSTANTS.OPPANAI_FILTER_WRAPPER}`}>
                 {this.state.filters.map((filter: string, index: number) => (
-                    < img key={index} src={this.props.imageSource} alt={filter} className='btn rounded' width={70} height={70} style={{ filter: `${filter}`, width: 'fit-content' }} />
+                    < img key={index} src={this.props.imageSource} alt={filter} className='btn rounded' width={70} height={70} style={{ filter: `${filter}`, width: 'fit-content' }} onClick={() => this.props.handleFilterSelection(filter)} />
                 ))}
             </div>
         )

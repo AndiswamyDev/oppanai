@@ -19,7 +19,7 @@
     object-fit: scale-down;
 }
 
-.preview-on-edit img {
+.preview-on-editImg {
     position: absolute;
     top: 0;
     left: 0;
@@ -58,4 +58,8 @@
 .oppanai-edit-tool-wrapper {
     position: fixed;
     bottom: 2%;
+}
+
+.oppanai-filter-wrapper{
+    width: 12vw;
 }
