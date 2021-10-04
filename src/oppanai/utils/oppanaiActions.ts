@@ -2,8 +2,8 @@ import { CONSTANTS } from '../constants';
 var zoomInCount = 0;
 var zoomOutCount = 0;
 
-export const handleDownload = (imageRef: any, imageFile: HTMLImageElement, rotateStyle: number, flipAxis: string) => {
-  console.log('flipAxis', flipAxis);
+export const handleDownload = (imageRef: any, imageFile: HTMLImageElement, rotateStyle: number, flipAxis: string, filterOption: string) => {
+  console.log('flipAxis', flipAxis, filterOption);
   const editedImage: any = document.getElementById(CONSTANTS.OPPANAI_EDITING_IMAGE);
   const canvas = document.createElement('canvas');
   canvas.width =
@@ -15,6 +15,7 @@ export const handleDownload = (imageRef: any, imageFile: HTMLImageElement, rotat
       ? imageRef.naturalWidth
       : imageRef.naturalHeight;
   const ctx: any = canvas.getContext('2d');
+  if (filterOption) ctx.filter = filterOption;
   //Define translation to place rotate position
   if (rotateStyle === 90) ctx?.translate(canvas.width, 0);
   else if (rotateStyle === 180) ctx?.translate(canvas.width, canvas.height);
@@ -25,7 +26,7 @@ export const handleDownload = (imageRef: any, imageFile: HTMLImageElement, rotat
   if (flipAxis === 'X') {
     ctx?.translate(canvas.width, 0);
     ctx?.scale(-1, 1);
-  } else {
+  } else if (flipAxis === 'Y') {
     ctx?.translate(0, canvas.height);
     ctx?.scale(1, -1);
   }
